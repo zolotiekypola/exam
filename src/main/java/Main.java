@@ -1,4 +1,7 @@
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -10,7 +13,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        SessionFactory factory;
-        factory = new Configuration().configure().buildSessionFactory();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/mainWindow.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Главное меню");
+        stage.show();
     }
 }
